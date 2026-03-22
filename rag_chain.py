@@ -8,7 +8,7 @@ Covers capstone Steps 3–6:
   Step 5   : RAG system — FAISS vector store + RetrievalQA
   Step 6   : Memory — ConversationBufferMemory
 """
-
+import streamlit as st
 import os
 import pandas as pd
 from typing import List, Any
@@ -284,7 +284,7 @@ def get_llm() -> ChatGroq:
     return ChatGroq(
         model="llama-3.3-70b-versatile",
         temperature=0.2,
-        groq_api_key=os.getenv("GROQ_API_KEY"),
+        groq_api_key=os.getenv("GROQ_API_KEY") or st.secrets.get("GROQ_API_KEY", ""),
     )
 
 

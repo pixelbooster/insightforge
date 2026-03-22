@@ -99,7 +99,7 @@ def build_pipeline():
     return chain, memory, vectorstore
 
 # ── Sidebar ───────────────────────────────────────────────────────
-groq_key = os.getenv("GROQ_API_KEY","")
+groq_key = os.getenv("GROQ_API_KEY", "") or st.secrets.get("GROQ_API_KEY", "")
 
 with st.sidebar:
     st.markdown('<div style="text-align:center;padding:16px 0 20px">'
